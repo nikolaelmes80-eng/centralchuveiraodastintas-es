@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuveirão das Tintas | Cores que Transformam</title>
+    <!-- Google Fonts para uma tipografia limpa e impactante -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome para ícones premium -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0f172a;       /* Slate escuro para contraste moderno */
+            --accent-gradient: linear-gradient(135deg, #ff007f 0%, #7928ca 50%, #0070f3 100%); /* Degradê moderno "vibe tintas" */
+            --accent-solid: #7928ca;
+            --text-main: #334155;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --card-border: rgba(226, 232, 240, 0.8);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Top Bar Minimalista */
+        .top-navbar {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 10px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .top-navbar a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            margin-right: 20px;
+            transition: color 0.3s;
+        }
+
+        .top-navbar a:hover {
+            color: var(--white);
+        }
+
+        /* Header Principal */
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            padding: 20px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 30px;
+            font-size: 0.95rem;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        /* Hero Section Avançada */
+        .hero {
+            padding: 120px 8% 100px 8%;
+            background: radial-gradient(circle at 90% 10%, rgba(121, 40, 202, 0.08) 0%, rgba(255, 255, 255, 0) 50%), var(--white);
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 60px;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .hero-text h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--primary);
+            margin-bottom: 25px;
+            letter-spacing: -2px;
+        }
+
+        .hero-text h1 span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #475569;
+            margin-bottom: 35px;
+            max-width: 600px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-modern {
+            background: var(--accent-gradient);
+            color: var(--white);
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(121, 40, 202, 0.25);
+        }
+
+        .btn-modern:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(121, 40, 202, 0.35);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 14px 34px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Badge de Tempo de Mercado */
+        .experience-badge {
+            background: #f1f5f9;
+            border: 1px solid var(--card-border);
+            padding: 40px;
+            border-radius: 24px;
+            text-align: center;
+        }
+
+        .experience-badge .years {
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .experience-badge .label {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-solid);
+            margin-top: 10px;
+        }
+
+        /* Grid de Informações Corporativas (Dashboard Style) */
+        .corporate-container {
+            padding: 100px 8%;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-header p {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: var(--accent-solid);
+            font-size: 0.85rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -1px;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .db-card {
+            background: var(--white);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+            transition: transform 0.3s;
+        }
+
+        .db-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .db-card h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .db-card h3 i {
+            color: var(--accent-solid);
+        }
+
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 0.95rem;
+        }
+
+        .data-row:last-child {
+            border: none;
+        }
+
+        .data-label {
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .data-value {
+            font-weight: 600;
+            color: var(--primary);
+            text-align: right;
+        }
+
+        .status-active {
+            background-color: #dcfce7;
+            color: #15803d;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Seção Contato & Hub de Localização */
+        .hub-section {
+            background-color: var(--white);
+            padding: 100px 8%;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .hub-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .info-block {
+            margin-bottom: 35px;
+        }
+
+        .info-block h4 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-block h4 i {
+            color: var(--accent-solid);
+        }
+
+        .info-block p {
+            color: #475569;
+            font-size: 1.05rem;
+            padding-left: 26px;
+        }
+
+        /* Rodapé Assinado */
+        footer {
+            background: var(--primary);
+            color: #94a3b8;
+            padding: 60px 8% 30px 8%;
+            font-size: 0.9rem;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #334155;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* Responsividade Fluida */
+        @media (max-width: 1024px) {
+            .dashboard-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 60px;
+                text-align: center;
+            }
+            .hero-text h1 {
+                font-size: 2.6rem;
+            }
+            .cta-group {
+                justify-content: center;
+            }
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            .hub-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .top-navbar {
+                display: none; /* Esconde infos secundárias no mobile para limpar design */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-navbar">
+        <div>
+            <a href="tel:1839014400"><i class="fa-solid fa-phone"></i> (18) 3901-4400</a>
+            <a href="mailto:informacoes@grupo-cmv.com"><i class="fa-solid fa-envelope"></i> informacoes@grupo-cmv.com</a>
+        </div>
+        <div>
+            <span>Matriz — Presidente Prudente/SP</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            Chuveirão<span>dasTintas</span>
+        </div>
+        <nav>
+            <a href="#home">Início</a>
+            <a href="#dados">Corporativo</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <h1>Cores que dão <span>vida</span> à sua história.</h1>
+            <p>Há meio século sendo a principal referência em comércio varejista de tintas e materiais para pintura em Presidente Prudente. Qualidade, tradição e inovação para o seu ambiente.</p>
+            <div class="cta-group">
+                <a href="tel:1839014400" class="btn-modern">Falar com Especialista</a>
+                <a href="#dados" class="btn-secondary">Dados da Empresa</a>
+            </div>
+        </div>
+        <div class="experience-badge">
+            <div class="years">50</div>
+            <div class="label">Anos de Tradição</div>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: #64748b;">Fundada em 16/10/1975</p>
+        </div>
+    </section>
+
+    <!-- Seção de Dados (Dashboard Corporativo) -->
+    <section class="corporate-container" id="dados">
+        <div class="section-header">
+            <p>Transparência Corporativa</p>
+            <h2>Painel de Informações de Registro</h2>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- Card 1: Identificação -->
+            <div class="db-card">
+                <h3><i class="fa-solid fa-id-card"></i> Identificação Oficial</h3>
+                <div class="data-row">
+                    <div class="data-label">Razão Social</div>
+                    <div class="data-value">Comercial Chuveirao das Tintas LTDA</div>
+                </div>
+                <div class="data-row">
+                    <div class="data-label">CNPJ</div>
+                    <div class="data-value">46.431.102/0001-62</div>
+                </div>
+                <div class="data-row">
+                    <div class="data-label">Inscrição Estadual</div>
+                    <div class="data-value">562.039.002.114</div>
+                </div>
+                <div class="data-row">
+                    <div class="data-label">Natureza Jurídica</div>
+                    <div class="data-value">Sociedade Limitada</div>
+                </div>
+            </div>
+
+            <!-- Card 2: Status e Tributação -->
+            <div class="db-card">
+                <h3><i class="fa-solid fa-sliders"></i> Operação & Regime</h3>
+                <div class="data-row">
+                    <div class="data-label">Situação Cadastral</div>
+                    <div class="data-value"><span class="status-active">Ativa</span></div>
+                </div>
+                <div class="data-row">
+                    <div class="data-label">Atualização Cadastral</div>
+                    <div class="data-value">03/11/2005</div>
+                </div>
+                <div class="data-row">
+                    <div class="data-label">Capital Social</div>
+                    <div class="data-value">R$ 273.484,00</div>
+                </div>
+                <div class="data-row">
+                    <div class="data-label">Regime Simples/MEI</div>
+                    <div class="data-value">Não Optante</div>
+                </div>
+            </div>
+
+            <!-- Card 3: Atividade & Sociedade -->
+            <div class="db-card">
+                <h3><i class="fa-solid fa-briefcase"></i> Estrutura & Negócio</h3>
+                <div class="data-row">
+                    <div class="data-label">CNAE Principal</div>
+                    <div class="data-value">47.41-5-00</div>
+                </div>
+                <div class="data-row">
+                    <div class="data-label">Descrição</div>
+                    <div class="data-value" style="font-size: 0.85rem;">Comércio varejista de tintas</div>
+                </div>
+                <div class="data-row">
+                    <div class="data-label">Sócios</div>
+                    <div class="data-value">Denise de Fátima K. Costa<br>Gervasio Costa</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hub de Contato e Localização física -->
+    <section class="hub-section" id="contato">
+        <div class="hub-grid">
+            <div>
+                <div class="section-header" style="margin-bottom: 40px;">
+                    <p>Canais de Atendimento</p>
+                    <h2>Fale Conosco</h2>
+                </div>
+                
+                <div class="info-block">
+                    <h4><i class="fa-solid fa-phone"></i> Telefone Comercial</h4>
+                    <p>(18) 3901-4400</p>
+                </div>
+
+                <div class="info-block">
+                    <h4><i class="fa-solid fa-envelope"></i> E-mail Institucional</h4>
+                    <p>informacoes@grupo-cmv.com</p>
+                </div>
+
+                <div class="info-block">
+                    <h4><i class="fa-solid fa-users"></i> Gestão / Administração</h4>
+                    <p>Gervasio Costa (Sócio-Administrador)</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="section-header" style="margin-bottom: 40px;">
+                    <p>Presença Física</p>
+                    <h2>Endereço & Logística</h2>
+                </div>
+
+                <div class="info-block">
+                    <h4><i class="fa-solid fa-map-location-dot"></i> Unidade Matriz</h4>
+                    <p>
+                        Avenida Brasil, 325 — Complemento: 347<br>
+                        Bairro: Vila Jesus<br>
+                        Presidente Prudente — SP<br>
+                        CEP: 19010-030
+                    </p>
+                </div>
+
+                <div class="info-block">
+                    <h4><i class="fa-solid fa-mail-bulk"></i> Correspondência Oficial</h4>
+                    <p>
+                        Comercial Chuveirao das Tintas LTDA<br>
+                        Avenida Brasil 325 347, Vila Jesus<br>
+                        Presidente Prudente SP | CEP: 19010-030
+                    </p>
+                </div>
+
+                <a href="https://www.google.com/maps/search/?api=1&query=Avenida+Brasil+325+Vila+Jesus+Presidente+Prudente+SP" target="_blank" class="btn-secondary" style="display: inline-block; margin-left: 26px;"><i class="fa-solid fa-location-arrow"></i> Ver no Google Maps</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="logo" style="color: white;">
+                Chuveirão<span style="background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">dasTintas</span>
+            </div>
+            <div>
+                <p>CNPJ: 46.431.102/0001-62 | Inscrição Estadual: 562.039.002.114</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Comercial Chuveirao das Tintas LTDA. Todos os direitos reservados.</p>
+            <p>Designed for Modernity & Performance</p>
+        </div>
+    </footer>
+
+</body>
+</html>
